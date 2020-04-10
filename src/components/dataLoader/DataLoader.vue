@@ -2,11 +2,8 @@
   <div class="flex column">
     <q-btn label="DataLoader デモ (N+1対策)" @click="getToggles" :loading="loading"/>
     <div>
-      <div class="text-center text-body1 q-pt-sm" v-show="toggles.length">{{ toggles[0].user.batchSize }}件を1クエリで処理<br/>(Toggle > Userのリレーション)</div>
-      <q-item v-for="(toggle, index) in toggles" v-bind:key="toggle.id">
-        <q-item-section avatar>
-          <q-spinner v-show="loading" :color="isOptimistic ? 'blue' : 'red'" size="2rem"/>
-        </q-item-section>
+      <div class="text-center text-body1 q-pt-sm" v-show="toggles.length">{{ toggles.length && toggles[0].user.batchSize }}件を1クエリで処理<br/>(Toggle > Userのリレーション)</div>
+      <q-item v-for="(toggle, index) in toggles" v-bind:key="toggle.id" class="q-pl-xl">
         <q-item-section>
           <q-item-label>User{{ index + 1 }}のスイッチ状況 </q-item-label>
           <q-item-label caption class="text-grey">ID:{{ toggle.user.uid }}</q-item-label>
