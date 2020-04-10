@@ -5,7 +5,7 @@ const variables = {
 export function GetGraphApiUrl () {
   const isPrd = variables.domainsPrd.includes(document.domain)
   if (isPrd) {
-    return 'https://aws-graphql.a-log.me/api/query'
+    return 'https://api-aws-graphql.a-log.me/api/query'
   } else { // default local
     return 'http://localhost:8080/api/query'
   }
